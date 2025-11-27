@@ -3,68 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Descargar ApiLeoBase</title>
+    <title>Descargar App LeoBase</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
+        :root {
+            --primary-color: #4e73df;
+            --secondary-color: #1cc88a;
+            --dark-color: #2e59d9;
+            --light-color: #f8f9fc;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-            background-color: #f5f5f5;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            max-width: 500px;
-            margin: 0 auto;
+        
+        .app-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        .qr-code {
-            margin: 20px 0;
-            padding: 20px;
-            background: white;
-            display: inline-block;
-        }
-        .download-btn {
-            display: inline-block;
-            padding: 15px 30px;
-            background: #007bff;
+        
+        .app-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
             color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            margin: 20px 0;
-            font-size: 18px;
+            padding: 2rem 1rem;
+            text-align: center;
         }
+        
+        .app-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .feature-icon {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+        
+        .qr-container {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e3e6f0;
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(78, 115, 223, 0.3);
+        }
+        
         .download-btn:hover {
-            background: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(78, 115, 223, 0.4);
+        }
+        
+        .step-card {
+            border-left: 4px solid var(--primary-color);
+            background: #f8f9fc;
+            transition: all 0.3s;
+        }
+        
+        .step-card:hover {
+            transform: translateX(5px);
+            background: white;
+        }
+        
+        .feature-card {
+            transition: all 0.3s;
+            border: 1px solid #e3e6f0;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .app-footer {
+            background: #f8f9fc;
+            border-top: 1px solid #e3e6f0;
+            padding: 1.5rem;
+        }
+        
+        .status-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1> Esta es mi App !!</h1>
-        <p>Sistema de Autenticación con Login, Registro y Recuperación de Contraseña</p>
-        
-        <!-- QR Code -->
-        <div class="qr-code">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=http://10.122.203.7/web_sige/app_public/apiLeoBase.apk" 
-                 alt="QR Code para descargar APK">
-            <p>Escanea el QR para descargar</p>
-        </div>
-        
-        <br>
-        
-        <!-- Link directo -->
-        <a href="app_public/apiLeoBase.apk" class="download-btn">
-             Descargar APK Directamente
-        </a>
-        
-        <div style="margin-top: 30px; font-size: 14px; color: #666;">
-            <p><strong>Instrucciones:</strong></p>
-            <p>1. Conectar el teléfono a la misma red WiFi</p>
-            <p>2. Escanear el QR o hacer clic en el botón de descarga</p>
-            <p>3. Permitir "Instalar desde fuentes desconocidas"</p>
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
+                <div class="app-card">
+                    <!-- Header -->
+                    <div class="app-header position-relative">
+                        <span class="badge bg-success status-badge">En línea</span>
+                        <i class="bi bi-phone app-icon"></i>
+                        <h1 class="h2 fw-bold">App LeoBase</h1>
+                        <p class="lead mb-0">Sistema de autenticación seguro con registro y recuperación de contraseña</p>
+                    </div>
+                    
+                    <!-- Body -->
+                    <div class="card-body p-4 p-md-5">
+                        <div class="row align-items-center">
+                            <!-- QR Code Section -->
+                            <div class="col-12 col-md-6 text-center mb-4 mb-md-0">
+                                <div class="qr-container mb-3">
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=http://10.122.203.7/web_sige/app_public/apiLeoBase.apk" 
+                                         class="img-fluid" alt="QR Code para descargar APK">
+                                </div>
+                                <p class="text-muted">Escanea con tu teléfono para descargar</p>
+                            </div>
+                            
+                            <!-- Download Info Section -->
+                            <div class="col-12 col-md-6">
+                                <h3 class="h4 mb-3">Descarga la aplicación</h3>
+                                <p class="text-muted mb-4">Obtén nuestra aplicación Android con todas las funcionalidades de autenticación y gestión de usuarios.</p>
+                                
+                                <div class="d-grid">
+                                    <a href="app_public/apiLeoBase.apk" class="btn download-btn text-white py-3">
+                                        <i class="bi bi-download me-2"></i> Descargar APK
+                                    </a>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <p class="small text-muted mb-2">
+                                        <i class="bi bi-info-circle me-1"></i> Tamaño: ~15MB | Versión: 1.0
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Features Section -->
+                        <div class="row mt-5">
+                            <div class="col-12">
+                                <h4 class="text-center mb-4">Características principales</h4>
+                            </div>
+                            
+                            <div class="col-md-4 mb-3">
+                                <div class="card feature-card h-100 border-0 shadow-sm">
+                                    <div class="card-body text-center p-4">
+                                        <i class="bi bi-shield-check feature-icon"></i>
+                                        <h5 class="card-title">Autenticación Segura</h5>
+                                        <p class="card-text text-muted">Sistema de login y registro con validación de credenciales.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4 mb-3">
+                                <div class="card feature-card h-100 border-0 shadow-sm">
+                                    <div class="card-body text-center p-4">
+                                        <i class="bi bi-key feature-icon"></i>
+                                        <h5 class="card-title">Recuperación de Contraseña</h5>
+                                        <p class="card-text text-muted">Restablece tu contraseña fácilmente si la olvidaste.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4 mb-3">
+                                <div class="card feature-card h-100 border-0 shadow-sm">
+                                    <div class="card-body text-center p-4">
+                                        <i class="bi bi-database feature-icon"></i>
+                                        <h5 class="card-title">Base de Datos MySQL</h5>
+                                        <p class="card-text text-muted">Tus datos se almacenan de forma segura en servidores remotos.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Installation Steps -->
+                        <div class="row mt-5">
+                            <div class="col-12">
+                                <h4 class="text-center mb-4">Cómo instalar la aplicación</h4>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <div class="card step-card h-100 border-0">
+                                    <div class="card-body">
+                                        <div class="d-flex">
+                                            <span class="badge bg-primary rounded-circle me-3 d-flex align-items-center justify-content-center" style="width: 30px; height: 30px;">1</span>
+                                            <div>
+                                                <h5 class="card-title">Descargar APK</h5>
+                                                <p class="card-text text-muted">Haz clic en el botón de descarga o escanea el código QR.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <div class="card step-card h-100 border-0">
+                                    <div class="card-body">
+                                        <div class="d-flex">
+                                            <span class="badge bg-primary rounded-circle me-3 d-flex align-items-center justify-content-center" style="width: 30px; height: 30px;">2</span>
+                                            <div>
+                                                <h5 class="card-title">Permitir fuentes desconocidas</h5>
+                                                <p class="card-text text-muted">Ve a Configuración → Seguridad y activa "Fuentes desconocidas".</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <div class="card step-card h-100 border-0">
+                                    <div class="card-body">
+                                        <div class="d-flex">
+                                            <span class="badge bg-primary rounded-circle me-3 d-flex align-items-center justify-content-center" style="width: 30px; height: 30px;">3</span>
+                                            <div>
+                                                <h5 class="card-title">Instalar aplicación</h5>
+                                                <p class="card-text text-muted">Busca el archivo descargado y completa la instalación.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <div class="card step-card h-100 border-0">
+                                    <div class="card-body">
+                                        <div class="d-flex">
+                                            <span class="badge bg-primary rounded-circle me-3 d-flex align-items-center justify-content-center" style="width: 30px; height: 30px;">4</span>
+                                            <div>
+                                                <h5 class="card-title">¡Listo para usar!</h5>
+                                                <p class="card-text text-muted">Abre la aplicación y comienza a disfrutar de sus funciones.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Footer -->
+                    <div class="app-footer text-center">
+                        <p class="mb-0 text-muted">App LeoBase &copy; 2023 - Sistema de Autenticación</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
